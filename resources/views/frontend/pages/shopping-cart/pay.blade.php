@@ -191,6 +191,18 @@
         }
 
         function generateSale() {
+            const paymentMethod = localStorage.getItem("paymentMethod");
+
+            let paymentType;
+            if (paymentMethod === "transferencia") {
+                paymentType = "transferencia";
+            } else if (paymentMethod === "deposito") {
+                paymentType = "deposito";
+            } else {
+                // Define un valor predeterminado si no se selecciona ningún método de pago
+                paymentType = "No seleccionado";
+            }
+
             axios.post('{{ route('api-sales.store') }}', {
                 withCredentials: true,
                 headers: {
@@ -198,7 +210,7 @@
                 },
                 'user_id': {!! $user->id !!},
                 'transaction_number': '5',
-                'payment_type': 'card',
+                'payment_type': paymentType,
                 'items': items,
                 'date_generated': "{{ \Carbon\Carbon::now() }}"
             })

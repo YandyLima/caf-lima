@@ -97,6 +97,7 @@ class SaleController extends Controller
                 'user_id' => ['required', 'integer', 'exists:users,id'],
                 'items' => ['required', 'array'],
                 'date_generated' => ['required', 'date_format:Y-m-d H:i:s'],
+                'payment_type' => ['required'] // Agrega validación para payment_type
             ]);
             DB::beginTransaction();
             $validate['status'] = 1;
@@ -118,6 +119,8 @@ class SaleController extends Controller
                 }
             }
             $sale->amount_paid = $amount_paid;
+            // Asigna el valor de payment_type al modelo Sale
+            $sale->payment_type = $validate['payment_type'];
             $sale->save();
             $this->sale = $sale->id;
             DB::commit();
