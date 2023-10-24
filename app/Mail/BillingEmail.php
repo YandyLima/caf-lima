@@ -52,6 +52,7 @@ class BillingEmail extends Mailable
     public function attachments(): array
     {
         $path = public_path($this->pdfUrl);
+        info("Ruta del archivo PDF: " . $path); // Agrega esta línea para imprimir la ruta en los registros
 
         return [
             Attachment::fromPath($path)

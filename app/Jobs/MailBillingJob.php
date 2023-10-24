@@ -49,7 +49,7 @@ class MailBillingJob implements ShouldQueue
 
             //Generar y almacenar PDF
             $pdf = Pdf::loadView('admin.sales.bill', compact('sale', 'phone', 'nit', 'address'));
-            $name = "$sale->authorization_number.pdf";
+            $name = $sale->id . ".pdf";
             $pdf->save(storage_path("app/public/bills/$name"));
             $sale->bill()->create([
                 'url' => "bills/$name",
@@ -67,6 +67,7 @@ class MailBillingJob implements ShouldQueue
             Mail::to($sale->customer->email)->send($mail);
         } catch (Exception $e) {
             Log::alert($e->getMessage());
+            Log::alert($e->getTraceAsString()); // Agrega esta línea para obtener más detalles sobre la excepción
         }
     }
 }

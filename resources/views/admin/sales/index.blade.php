@@ -183,7 +183,7 @@
                         billing.removeAttr('href')
                         billing.text('Ver factura')
                         billing.click(showBill)
-                        $("#modal-bill #bill").attr('src', 'https://drive.google.com/viewerng/viewer?embedded=true&url='+item.sale.url)
+                        $("#modal-bill #bill").attr('src', item.sale.url);
                     }
 
                     modalDetails.show()
