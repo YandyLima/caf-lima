@@ -50,16 +50,12 @@ class MailBillingJob implements ShouldQueue
             //Generar y almacenar PDF
             $pdf = Pdf::loadView('admin.sales.bill', compact('sale', 'phone', 'nit', 'address'));
             $name = $sale->id . ".pdf";
+//            dd($pdf->save(storage_path("app/public/bills/$name")));
             $pdf->save(storage_path("app/public/bills/$name"));
             $sale->bill()->create([
                 'url' => "bills/$name",
                 'type' => 1
             ]);
-
-            //URL para descarga en boton
-            $file = $sale->bill()->first();
-            $url = asset(Storage::url($file->url));
-            $sale->url = $url;
 
             //Enviar correo
             $fileName = "storage/bills/$name";

@@ -11,7 +11,7 @@
 
     <!-- Favicons -->
     <link href="{{ asset('assets/img/logo.svg') }}" rel="icon">
-    <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+    <link href="{{ asset('assets/img/lgo.cafe.png') }}" rel="apple-touch-icon">
 
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">

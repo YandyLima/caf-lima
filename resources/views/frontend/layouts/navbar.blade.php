@@ -36,7 +36,7 @@
                         alt="logo"
                         width="15%"
                     >
-                    Cafetenango
+                    Café Lima
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>

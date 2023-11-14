@@ -83,13 +83,13 @@
     <h2>Factura</h2>
     <div class="header-container">
         <div class="information">
-            <h1>Cafetenango</h1>
-            <p>Nit: {{ $nit }}</p>
+            <h1>Café Lima</h1>
+            <p>Nit: {{ $sale->customer->nit ?? 'CF' }}</p>
             <p>{{ $address }}</p>
-            <p>Teléfono: {{ $phone }}</p>
+            <p>Teléfono: {{ $sale->customer->phone }}</p>
         </div>
         <div class="logo">
-            <img src="{{ public_path('assets/img/logo.png') }}" height="200px"/>
+            <img src="{{ public_path('assets/img/lgo.cafe.png') }}" height="200px"/>
         </div>
     </div>
     <hr />
