@@ -50,20 +50,21 @@ class MailBillingJob implements ShouldQueue
             //Generar y almacenar PDF
             $pdf = Pdf::loadView('admin.sales.bill', compact('sale', 'phone', 'nit', 'address'));
             $name = $sale->id . ".pdf";
-//            dd($pdf->save(storage_path("app/public/bills/$name")));
-            $pdf->save(storage_path("app/public/bills/$name"));
+//            dd($pdf->save(storage_path("app/public/$name")));
+            $pdf->save(storage_path("app/public/$name"));
+//            dd($pdf);
             $sale->bill()->create([
-                'url' => "bills/$name",
+                'url' => "$name",
                 'type' => 1
             ]);
 
             //Enviar correo
-            $fileName = "storage/bills/$name";
+            $fileName = "storage/$name";
             $mail = new BillingEmail($sale, $fileName);
             Mail::to($sale->customer->email)->send($mail);
         } catch (Exception $e) {
             Log::alert($e->getMessage());
-            Log::alert($e->getTraceAsString()); // Agrega esta línea para obtener más detalles sobre la excepción
+            Log::alert($e->getTraceAsString());
         }
     }
 }
