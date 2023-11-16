@@ -71,7 +71,7 @@
 <body>
 <header>
     <h1>Factura Electrónica</h1>
-    <img src="{{ asset('assets/img/logo.png') }}"  alt="">
+    <img src="{{ asset('assets/img/lgo.cafe.png') }}"  alt="">
 </header>
 <div class="main-content">
     <div class="card">
