@@ -6,7 +6,7 @@
     <meta content="" name="description">
     <meta content="" name="keywords">
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/lgo.cafe.png" rel="icon">
     <link href="assets/img/lgo.cafe.png" rel="apple-touch-icon">
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
